@@ -1,0 +1,21 @@
+[package]
+name = "tbgn"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89"
+description = "Top Bar GitHub Notifier: your GitHub notifications inbox in the GNOME top bar"
+license = "MIT"
+repository = "https://github.com/jessecaple/tbgn"
+keywords = ["github", "notifications", "gnome", "tray"]
+
+[dependencies]
+ksni = { version = "0.3.6", features = ["async-io", "blocking"], default-features = false }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+ureq = "3.4.2"
+zbus = "5"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
